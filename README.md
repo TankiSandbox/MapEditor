@@ -1,76 +1,90 @@
-# Map Editor
+# Tanki Map Editor
 
 ![Map Editor Preview](images/preview.jpg)
 
-A map editor for creating Tanki Online maps written from scratch with C++ and OpenGL.
+A 3D map editor for creating Tanki Online maps, built from scratch with C++ and OpenGL.
 
 ## Features
 
-- **3D Viewport** with intuitive camera controls
-- **Prop Library System** for loading and placing map objects
-- **Transform Tools** for moving, rotating, and scaling objects
-- **Multi-selection** with rectangle selection and modifier keys
-- **Undo/Redo History** for safe editing
-- **XML Import/Export** compatible with Tanki map format
-- **Texture Management** for props with multiple texture variants
+**3D Editing**
+- Intuitive viewport with WASD camera controls
+- Transform gizmos for move, rotate, and scale operations
+- Grid snapping for precise placement
+- Multi-selection with rectangle select and modifier keys
+- Group rotation for batch transformations
+
+**Asset Management**
+- Library browser with prop previews
+- Multiple texture variants per prop
+- Skybox support with custom library format
+- Graceful handling of missing assets during import
+
+**Game Elements**
+- Spawn points, CTF flags, and domination points
+- Bonus regions for power-ups
+
+**Workflow**
+- Full undo/redo history
+- XML import/export (Tanki map format)
+- Overlap detection to catch placement errors
+
+![Collision Detection](images/collision_detection.png)
 
 ## Quick Start
 
-### Loading Assets
-
-1. **Load Prop Libraries**: Click "Select path" in Library Browser and choose your prop libraries directory
-2. **Import Maps**: Go to File → Import Map and select a `.xml` map file
+### Get Assets
 
 Download prop libraries and maps from:
-- [MapMakersAndProgrammers/tanki-prop-libraries](https://github.com/MapMakersAndProgrammers/tanki-prop-libraries)
-- [MapMakersAndProgrammers/tanki-xml-maps](https://github.com/MapMakersAndProgrammers/tanki-xml-maps)
+- [tanki-prop-libraries](https://github.com/MapMakersAndProgrammers/tanki-prop-libraries)
+- [tanki-xml-maps](https://github.com/MapMakersAndProgrammers/tanki-xml-maps)
 
-### Basic Usage
+### Load & Edit
 
-1. **Place Objects**: Double-click props in Library Browser to add them to the map (placed at origin)
-2. **Select Objects**: Right-click objects in viewport or hold Shift for multi-select
-3. **Move Objects**: Press `T` for translation mode and use the gizmo
-4. **Rotate Objects**: Press `Z`/`X` for 90° Y-axis rotation or `R` for rotation mode
-5. **Fine-tune**: Adjust properties in the Properties panel
+1. Click **Select path** in Library Browser and choose your prop libraries directory
+2. Go to **File → Import Map** to load an existing `.xml` map
+3. Drag and drop assets straight into the viewport
+4. Right-click objects to select, hold `Shift` for multi-select
 
 ## Controls
 
-### Camera
-- **Rotate**: Left-click + drag
-- **Move**: `W` `A` `S` `D` keys
-- **Up/Down**: `Q` / `E` keys
-- **Speed Boost**: Hold `Shift` while moving
+| Action | Key |
+|--------|-----|
+| **Camera** | |
+| Move | `W` `A` `S` `D` |
+| Up / Down | `Q` / `E` |
+| Rotate | Left-click + drag |
+| Speed boost | Hold `Shift` |
+| **Editing** | |
+| Select mode | `V` |
+| Translate mode | `T` |
+| Rotate mode | `R` |
+| Quick rotate 90° | `Z` / `X` |
+| Move selection | Arrow keys |
+| Move selection up/down | `Page Up` / `Page Down` |
+| Duplicate | `Space` |
+| Delete | `Delete` |
+| Deselect | `Esc` |
+| **Grid** | |
+| Select grid | `G` |
+| Adjust grid height | `Page Up` / `Page Down` (with grid selected) |
+| **Selection** | |
+| Multi-select | `Shift` + right-click |
+| Rectangle select | `Ctrl` + right-click drag |
+| Add to selection | `Ctrl` + `Shift` + right-click drag |
+| Select library | `Ctrl` + `P` |
+| **History** | |
+| Undo | `Ctrl` + `Z` |
+| Redo | `Ctrl` + `Y` |
 
-### Editing
-- **Select Mode**: `V`
-- **Translation Mode**: `T`
-- **Rotation Mode**: `R`
-- **Quick Rotate**: `Z` / `X` (90° around Y-axis)
-- **Duplicate**: `Space`
-- **Delete**: `Delete`
-- **Deselect**: `Esc`
+### Grid & Snapping
 
-### Selection
-- **Multi-select**: Hold `Shift` while right-clicking
-- **Rectangle Select**: `Ctrl` + right-click drag (in Select Mode)
-- **Add to Selection**: `Ctrl` + `Shift` + right-click drag (in Select Mode)
+Assets dropped into the viewport automatically snap to the grid height.
 
-### History
-- **Undo**: `Ctrl` + `Z`
-- **Redo**: `Ctrl` + `Y`
+- **Gizmo snapping**: Hold `Ctrl` while dragging (250 units XZ, 300 units Y)
+- **Arrow keys / Page Up/Down**: Move selection in snapped increments; hold `Ctrl` for half snap size
+- **Properties panel**: `Shift` for larger increments, `Alt` for smaller, `Ctrl` + click for exact values
 
-### Transform Gizmo
-- **Snap to Grid**: Hold `Ctrl` while dragging (250 units XZ, 300 units Y)
-- **Adjust Values**: Click and drag in Properties panel
-  - Default increment
-  - `Shift`: Larger increment
-  - `Alt`: Smaller increment
-  - `Ctrl` + click: Enter exact value
+## Additional Resources
 
-### Manual
-
-See the manual in `manual/` for additional hotkeys.
-
-## Skyboxes
-
-The library format is extended to support skyboxes. See `skyboxes/` for an example.
+- See `manual/` for the full hotkey reference
+- See `skyboxes/` for the skybox library format example
