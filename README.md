@@ -13,6 +13,8 @@ A 3D map editor for creating Tanki Online maps, built from scratch with C++ and 
 - Multi-selection with rectangle select and modifier keys
 - Group rotation for batch transformations
 
+![Map Editor Demo](images/preview.gif)
+
 **Asset Management**
 - Library browser with prop previews
 - Multiple texture variants per prop
